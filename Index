@@ -81,7 +81,7 @@
 
     <script>
         // PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT TERMINADA EN /exec
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz8rd9GZSB9D6_tQ1OvIbkSMMCvpDuFjufjZKPB4SPVcesw-WTzZUdd1s2Yfp8RZAtm/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzjuHH5lz_6AuD8h5U-lOMHJbHTfUu-URkMsBpd6MOQ6ZwJ4ECjolnaerJyVY-2r9W8/exec";
 
         document.getElementById('registroForm').addEventListener('submit', function(e) {
             e.preventDefault();
