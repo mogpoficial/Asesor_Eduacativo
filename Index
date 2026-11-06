@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prepa en 2 Años - Inscripciones Abiertas</title>
+    <title>Inscripciones Preparatoria en 2 Años</title>
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
         body { background-color: #f1f5f9; margin: 0; padding: 0; color: #0f172a; }
@@ -25,8 +25,8 @@
 <body>
 
     <div class="banner">
-        <h1>🎓 Prepa Oficial en 2 Años</h1>
-        <p>Asegura tu lugar y aparta tu beca de inscripción hoy mismo</p>
+        <h1>🎓 Preparatoria Oficial en 2 Años</h1>
+        <p>Modalidad Escolarizada y Sabatina | Validez Oficial</p>
     </div>
 
     <div class="container">
@@ -42,7 +42,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Nombre Completo del Alumno</label>
+                    <label>Nombre Completo del Candidato (Posible Alumno)</label>
                     <input type="text" id="nombre" placeholder="Ej. Juan Pérez López" required>
                 </div>
 
@@ -57,49 +57,42 @@
                 </div>
 
                 <div class="form-group">
-                    <label>CURP del Candidato (Obligatorio para apartado)</label>
-                    <input type="text" id="curp" placeholder="18 caracteres del CURP" maxlength="18" required style="text-transform:uppercase;">
-                </div>
-
-                <div class="form-group">
                     <label>Modalidad de Interés</label>
                     <select id="modalidad" required>
                         <option value="" disabled selected>Selecciona la modalidad...</option>
                         <option value="Escolarizada">🏫 Escolarizada (Entre semana)</option>
                         <option value="Sabatina">📅 Sabatina (Fin de semana)</option>
-                        <option value="Dominical">📅 Dominical (Fin de semana)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label>Teléfono / WhatsApp (10 dígitos)</label>
+                    <label>Teléfono / WhatsApp de Contacto (10 dígitos)</label>
                     <input type="tel" id="telefono" placeholder="Ej. 4521234567" pattern="[0-9]{10}" required>
                 </div>
 
-                <button type="submit" class="btn-submit" id="btnEnviar">Apartar Inscripción 🚀</button>
+                <button type="submit" class="btn-submit" id="btnEnviar">Enviar Datos e Iniciar Proceso 🚀</button>
             </form>
             <div id="mensajeExito" class="alert alert-success">
-                ¡Registro completado! Un asesor educativo se comunicará contigo vía WhatsApp para confirmar tu lugar.
+                ¡Datos registrados con éxito! Un asesor educativo se comunicará contigo vía WhatsApp a la brevedad.
             </div>
         </div>
     </div>
 
     <script>
         // PEGA AQUÍ TU URL DE GOOGLE APPS SCRIPT TERMINADA EN /exec
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz6VLpa_BEmIjX-CQxDwCFwsP-ayZO9F2Qsm3eZCnSv__JvkVboB0YOw99WVj7Z6of0/exec";
+        const SCRIPT_URL = "https://script.google.com/macros/s/TU_SCRIPT_ID/exec";
 
         document.getElementById('registroForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnEnviar');
             btn.disabled = true;
-            btn.innerText = "Enviando registro...";
+            btn.innerText = "Enviando registros...";
 
             const payload = {
                 tipoContacto: document.getElementById('tipoContacto').value,
                 nombre: document.getElementById('nombre').value,
                 fechaNacimiento: document.getElementById('fechaNacimiento').value,
                 lugarNacimiento: document.getElementById('lugarNacimiento').value,
-                curp: document.getElementById('curp').value.toUpperCase(),
                 modalidad: document.getElementById('modalidad').value,
                 telefono: document.getElementById('telefono').value
             };
@@ -113,13 +106,13 @@
             .then(() => {
                 document.getElementById('registroForm').reset();
                 document.getElementById('mensajeExito').style.display = 'block';
-                btn.innerText = "Apartar Inscripción 🚀";
+                btn.innerText = "Enviar Datos e Iniciar Proceso 🚀";
                 btn.disabled = false;
             })
             .catch(error => {
-                alert("Hubo un detalle al enviar los datos. Intenta nuevamente.");
+                alert("Hubo un detalle al enviar la información. Intenta de nuevo.");
                 btn.disabled = false;
-                btn.innerText = "Apartar Inscripción 🚀";
+                btn.innerText = "Enviar Datos e Iniciar Proceso 🚀";
             });
         });
     </script>
